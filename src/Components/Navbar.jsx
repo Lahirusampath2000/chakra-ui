@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Navbar() {
   return (
-    <Flex as={"nav"} p={10} alignItems={"center"} >
+    <Flex as={"nav"} p={10} alignItems={"center"}  mb={"40px"}>
 
         <Heading as="h1">Chakra</Heading>
 

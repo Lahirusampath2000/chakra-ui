@@ -1,4 +1,5 @@
-import { Box, SimpleGrid, Text} from "@chakra-ui/react";
+import { EditIcon, ViewIcon } from "@chakra-ui/icons";
+import { Box, Button, Card, CardBody, CardFooter, CardHeader, Divider, Flex, Heading, HStack, SimpleGrid, Text} from "@chakra-ui/react";
 import { use } from "react";
 import { useLoaderData } from "react-router-dom";
 
@@ -12,7 +13,36 @@ export default function Dashboard() {
     <SimpleGrid  spacing={10} minChildWidth={"300px"}>
 
       {tasks && tasks.map((task) => (
-        <div key={task.id}>{task.title}</div>
+        <Card key={task.id} borderTop={"8px"} borderColor={"purple.300"}  >
+          <CardHeader>
+            <Flex gap={5}>
+              <Box w={"50px"} h={"50px"} >
+                <Text>Av</Text>
+              </Box>
+              <Box>
+                <Heading as="h3" size={"sm"}>{task.title}</Heading>
+                <Text>By {task.author}</Text>
+              </Box>
+            </Flex>
+
+          </CardHeader>
+
+          <CardBody color={"gray.500"}>
+            <Text>{task.description}</Text>
+
+          </CardBody>
+
+          <Divider borderColor={"gray.200"}/>
+
+          <CardFooter>
+            <HStack>
+              <Button variant={"ghost"} leftIcon={<ViewIcon/>}>watch</Button>
+              <Button variant={"ghost"} leftIcon={<EditIcon/>}>comment</Button>
+            </HStack>
+
+          </CardFooter>
+
+        </Card>
       ))}
       
 
